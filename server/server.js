@@ -57,7 +57,7 @@ app.delete('/todos/:id', (req,res) => {
     if(!todo) {
       return res.status(404).send();
     }
-    res.send(todo);
+    res.send({todo});
   }).catch((e) => {
     res.status(404).send();
   });
@@ -66,26 +66,5 @@ app.delete('/todos/:id', (req,res) => {
 app.listen(port, () => {
   console.log(`Started up at ${port}`)
 });
-// var newTodo = new Todo({
-//   text: 'Screw up'
-// });
 
-//save returns a promise
-// newTodo.save().then((doc) => {
-//   console.log('Saved todo', doc)
-// }, (e) => {
-//   console.log('Unable to save todo')
-// })
-
-// var otherTodo = new Todo({
-//   text: 'screw up',
-//   completed: true,
-//   completedAt: 1246865
-// })
-
-// otherTodo.save().then((doc) => {
-//   console.log(JSON.stringify(doc, undefined, 2))
-// }, (e) => {
-//   console.log('Unable to save', e)
-// })
 module.exports = {app};
